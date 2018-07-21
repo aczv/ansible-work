@@ -1,0 +1,20 @@
+# apt tasks file for smartgit role
+
+- name: "apt | ensure ppa:eugenesan/ppa present"
+  apt_repository:
+    repo: ppa:eugenesan/ppa
+    filename: "eugenesan"
+    state: present
+    update_cache: yes
+
+- name: "apt | ensure SmartGit present"
+  apt:
+    name: "smartgit"
+    state: present
+
+#- name: "Install SmartGit deb package from the internet"
+#  apt:
+#    deb: https://www.syntevo.com/downloads/smartgit/smartgit-linux-18_1_4.tar.gz
+#    force: yes
+
+

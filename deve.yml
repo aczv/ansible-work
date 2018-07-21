@@ -3,5 +3,6 @@
 - hosts: deve
   become: yes
   roles:
+    - java
+    - smartgit
     - chrome
-
