@@ -1,0 +1,7 @@
+---
+
+- hosts: deve
+  become: yes
+  roles:
+    - chrome
+
