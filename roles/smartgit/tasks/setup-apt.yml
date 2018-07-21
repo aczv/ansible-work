@@ -11,10 +11,3 @@
   apt:
     name: "smartgit"
     state: present
-
-#- name: "Install SmartGit deb package from the internet"
-#  apt:
-#    deb: https://www.syntevo.com/downloads/smartgit/smartgit-linux-18_1_4.tar.gz
-#    force: yes
-
-
