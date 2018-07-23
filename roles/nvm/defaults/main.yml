@@ -1,0 +1,12 @@
+---
+
+nvm_version: "0.33.11"
+nvm_node_version: "8.11.3"
+nvm_user: "{{ ansible_user_id }}"
+nvm_home: "/home/{{ nvm_user }}"
+nvm_dest: "{{ nvm_home }}/.nvm"
+
+nvm_apt_packages:
+  - git
+  - curl
+  - libssl-dev

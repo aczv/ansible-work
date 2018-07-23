@@ -1,0 +1,28 @@
+---
+
+- name: NVM | node | get stats on node
+  stat: path="{{ nvm_dest }}/versions/node/v{{ nvm_node_version }}"
+  register: node_stat
+
+- name: NVM | node | install node
+  shell: "source {{ nvm_dest }}/nvm.sh && nvm install {{ nvm_node_version }}"
+  args:
+     executable: /bin/bash
+  when: not node_stat.stat.exists
+
+- name: stat alias/default
+  stat: path="{{ nvm_dest }}/alias/default"
+  register: default_stat
+
+- name: get alias/default
+  command: cat {{ nvm_dest }}/alias/default
+  register: alias_default
+  when: default_stat.stat.exists
+  changed_when: False
+
+- name: NVM | node | set default Node version
+  shell: "source {{nvm_dest}}/nvm.sh && nvm alias default {{ nvm_node_version }}"
+  args:
+     executable: /bin/bash
+  when: (not default_stat.stat.exists) or
+        alias_default.stdout_lines[0] != nvm_node_version

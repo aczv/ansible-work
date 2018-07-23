@@ -1,0 +1,13 @@
+---
+
+# - name: NVM | Install Required Packages
+#   become: yes
+#   apt:
+#     name: "{{ item }}"
+#     state: present
+#     cache_valid_time: 600
+#   with_items: "{{ nvm_apt_packages }}"
+
+- include: nvm.yml
+
+- include: node.yml
