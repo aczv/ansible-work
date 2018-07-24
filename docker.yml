@@ -1,0 +1,6 @@
+---
+
+- hosts: deve
+  become: yes
+  roles:
+    - docker
