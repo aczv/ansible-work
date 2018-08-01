@@ -1,0 +1,10 @@
+---
+# tasks file for fixes
+
+# via https://www.linuxbabe.com/ubuntu/disable-apport-error-reporting-ubuntu-16-04-lts
+- name: Disable Apport Error Reporting
+  lineinfile:
+    path: /etc/default/apport
+    regexp: '^enabled='
+    line: 'enabled=0'
+  become: yes
