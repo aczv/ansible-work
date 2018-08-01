@@ -1,0 +1,16 @@
+---
+# tasks file for yarn
+
+- name: "Add Yarn's GPG key"
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+
+- name: "Setup the Yarn repository"
+  apt_repository:
+    repo: "deb https://dl.yarnpkg.com/debian/ stable main"
+    filename: yarn
+
+- name: "Install Yarn"
+  apt:
+    name: yarn
+    install_recommends: no
