@@ -1,0 +1,7 @@
+---
+# Install Atom on ubuntu
+
+- name: "Install Atom"
+  apt:
+    deb: https://atom.io/download/deb
+    install_recommends: no

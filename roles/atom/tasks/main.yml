@@ -1,0 +1,6 @@
+---
+# tasks file for Atom
+
+- include: atom-apt.yml
+  become: yes
+  when: ansible_pkg_mgr == 'apt'
