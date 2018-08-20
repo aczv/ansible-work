@@ -1,7 +1,7 @@
 ---
 # Install VirtualBox on ubuntu
 
-- name: "Add Docker’s official GPG key"
+- name: "Add Oracle public key"
   apt_key:
     url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
 
@@ -17,3 +17,5 @@
     name: "virtualbox-5.2"
     state: present
     install_recommends: no
+
+...
