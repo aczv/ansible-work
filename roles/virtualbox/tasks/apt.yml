@@ -1,0 +1,19 @@
+---
+# Install VirtualBox on ubuntu
+
+- name: "Add Docker’s official GPG key"
+  apt_key:
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+
+- name: "Add VirtualBox repository"
+  apt_repository:
+    repo: deb https://download.virtualbox.org/virtualbox/debian {{ ansible_lsb.codename }} contrib
+    filename: "virtualbox"
+    state: present
+    update_cache: yes
+
+- name: "Install VirtualBox"
+  apt:
+    name: "virtualbox-5.2"
+    state: present
+    install_recommends: no

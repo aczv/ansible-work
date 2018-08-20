@@ -1,5 +1,6 @@
 ---
 
+# become here
 - hosts: deve
   become: yes
   roles:
@@ -9,3 +10,13 @@
     - sublimetext
     - fixes
     - yarn
+    - atom
+
+# become in role
+- hosts: deve
+  roles:
+    - docker
+    - virtualbox
+    - vagrant
+
+...

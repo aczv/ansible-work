@@ -1,7 +1,0 @@
----
-
-- hosts: vagrant
-  roles:
-    - vagrant
-
-...

@@ -1,5 +1,0 @@
----
-
-- hosts: deve
-  roles:
-    - docker
