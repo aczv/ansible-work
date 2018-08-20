@@ -1,0 +1,6 @@
+---
+# Tasks file for Vagrant
+
+- include: apt.yml
+  become: true
+  when: ansible_pkg_mgr == 'apt'
