@@ -1,6 +1,21 @@
 ---
-# tasks file for java
+# Tasks file for Java role
 
-- include: setup-apt.yml
+- name: "apt | Install Java"
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - openjdk-8-jre
+    - openjdk-8-jdk
   when: ansible_pkg_mgr == 'apt'
 
+# SmartGit 18.1 fails to start with JRE 9 preview error message
+- name: correct java version selected
+  alternatives:
+    name: java
+    path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+  when: ansible_pkg_mgr == 'apt'
+
+...

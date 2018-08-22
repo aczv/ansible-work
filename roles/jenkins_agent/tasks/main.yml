@@ -1,0 +1,19 @@
+---
+# Configure Jenkins Agent
+
+- name: Add jenkins user
+  user:
+    name: "{{ jenkins_agent_username }}"
+    uid: 1000
+    groups: docker
+    append: yes
+
+- name: Add authorized keys
+  authorized_key:
+    user: "{{ jenkins_agent_username }}"
+    key: '{{ item }}'
+  with_file:
+    - public_keys/jenkins
+    - public_keys/ed
+
+...
