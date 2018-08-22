@@ -1,0 +1,21 @@
+---
+# Tasks for Certbot role
+
+- name: Install software-properties-common
+  apt:
+    name: software-properties-common
+    state: present
+    cache_valid_time: 3600
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Add Certbot repository
+  apt_repository:
+    repo: ppa:certbot/certbot
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Install Certbot
+  apt:
+    name: certbot
+  when: ansible_pkg_mgr == 'apt'
+
+...
