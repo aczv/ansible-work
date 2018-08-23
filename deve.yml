@@ -1,22 +1,21 @@
 ---
 
-# become here
 - hosts: deve
   become: yes
   roles:
+    - atom
+    - chrome
+    - docker
+    - fixes
     - java
     - smartgit
-    - chrome
     - sublimetext
-    - fixes
+    - vagrant
     - yarn
-    - atom
 
 # become in role
 - hosts: deve
   roles:
-    - docker
     - virtualbox
-    - vagrant
 
 ...
