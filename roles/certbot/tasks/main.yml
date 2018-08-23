@@ -1,5 +1,6 @@
 ---
-# Tasks for Certbot role
+# Install Certbot
+# https://certbot.eff.org/lets-encrypt/ubuntuxenial-other
 
 - name: Install software-properties-common
   apt:
@@ -17,5 +18,16 @@
   apt:
     name: certbot
   when: ansible_pkg_mgr == 'apt'
+
+- name: Obtain certificates from Certbot
+  shell: |
+    certbot certonly \
+      --webroot --staging --agree-tos --no-eff-email \
+      --cert-name {{ certbot_cert_name }} \
+      --email {{ certbot_email }} \
+      --webroot-path {{ certbot_webroot_path }} \
+      --domains {{ certbot_domains }}
+  args:
+    creates: /etc/letsencrypt/live/{{ certbot_cert_name }}/fullchain.pem
 
 ...
