@@ -1,6 +1,19 @@
 ---
-# tasks file for yarn
+# Install yarn
 
-- include: yarn-apt.yml
-  become: yes
+- name: "Add Yarn's GPG key"
+  apt_key:
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+  when: ansible_pkg_mgr == 'apt'
+
+- name: "Add Yarn repository"
+  apt_repository:
+    repo: "deb https://dl.yarnpkg.com/debian/ stable main"
+    filename: yarn
+  when: ansible_pkg_mgr == 'apt'
+
+- name: "Install Yarn"
+  apt:
+    name: yarn
+    install_recommends: no
   when: ansible_pkg_mgr == 'apt'

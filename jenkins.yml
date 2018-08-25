@@ -6,5 +6,6 @@
   roles:
     - jenkins_agent
     - java
+    - yarn
 
 ...
