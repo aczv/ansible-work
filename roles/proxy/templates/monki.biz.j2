@@ -26,5 +26,11 @@ server {
     listen 80;
     server_name monki.biz www.monki.biz;
 
-    return 301 https://monki.biz;
+    location /.well-known/ {
+        alias /var/www/certbot/.well-known/;
+    }
+
+    location / {
+        return 301 https://monki.biz;
+    }
 }

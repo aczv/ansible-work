@@ -1,14 +1,18 @@
 server {
     listen 80 default_server;
+    listen 443 ssl default_server;
 
     server_name _;
+
+    ssl_certificate /etc/letsencrypt/live/monki.biz/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/monki.biz/privkey.pem;
 
     root /var/www/html;
 
     index index.html;
 
-    location /.well-known {
-        alias /var/www/certbot/.well-known;
+    location /.well-known/ {
+        alias /var/www/certbot/.well-known/;
     }
 
     location / {
