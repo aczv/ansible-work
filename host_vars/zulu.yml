@@ -4,7 +4,7 @@ certbot_certs:
 
   - cert_name: monki.biz
     email: andrius.cepaitis@gmail.com
-    webroot_path: /var/www/monki.biz
+    webroot_path: /var/www/certbot
     domains:
       - monki.biz
       - www.monki.biz

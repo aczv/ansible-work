@@ -1,27 +1,30 @@
 server {
-    listen 80;
     listen 443 ssl;
-
     server_name monki.biz;
 
-    ssl_certificate /etc/letsencrypt/live/monkibiz/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/monkibiz/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/monki.biz/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/monki.biz/privkey.pem;
 
-    location /.well-known {
-        alias /var/www/certbot/.well-known;
-    }
+    root /var/www/html;
 
     location / {
-        proxy_set_header        Host $host:$server_port;
-        proxy_set_header        X-Real-IP $remote_addr;
-        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header        X-Forwarded-Proto $scheme;
-
-        proxy_pass          http://127.0.0.1:8080;
-        proxy_read_timeout  30;
-
-        # Required for new HTTP-based CLI
-        proxy_http_version 1.1;
-        proxy_request_buffering off;
+        try_files /index.html =404;
     }
+}
+
+server {
+    listen 443 ssl;
+    server_name www.monki.biz;
+
+    ssl_certificate /etc/letsencrypt/live/monki.biz/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/monki.biz/privkey.pem;
+
+    return 301 https://monki.biz;
+}
+
+server {
+    listen 80;
+    server_name monki.biz www.monki.biz;
+
+    return 301 https://monki.biz;
 }
