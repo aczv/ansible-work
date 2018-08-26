@@ -26,3 +26,7 @@ To non-interactively renew *all* of your certificates, run
 
     certbot renew
 
+## molecule
+
+https://molecule.readthedocs.io/en/latest/installation.html
+
