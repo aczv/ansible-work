@@ -6,6 +6,8 @@
     dest: /var/www/html/index.html
     mode: 0644
 
+# jenkins.cepaitis.eu
+
 - name: create jenkins.conf
   template:
     src: jenkins.conf.j2
@@ -18,6 +20,24 @@
   file:
     src: /etc/nginx/sites-available/jenkins.conf
     dest: /etc/nginx/sites-enabled/jenkins.conf
+    state: link
+  notify:
+    - reload nginx
+
+# monki.biz
+
+- name: create monki.biz.conf
+  template:
+    src: monki.biz.conf.j2
+    dest: /etc/nginx/sites-available/monki.biz.conf
+    mode: 0644
+  notify:
+    - reload nginx
+
+- name: link monki.biz.conf
+  file:
+    src: /etc/nginx/sites-available/monki.biz.conf
+    dest: /etc/nginx/sites-enabled/monki.biz.conf
     state: link
   notify:
     - reload nginx

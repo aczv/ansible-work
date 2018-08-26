@@ -1,5 +1,6 @@
 ---
 
+# Configure nginx sites
 - hosts: proxy
   become: yes
   roles:

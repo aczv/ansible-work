@@ -1,5 +1,6 @@
 ---
 
+# Obtain SSL certificates from Certbot
 - hosts: certbot
   become: yes
   roles:
