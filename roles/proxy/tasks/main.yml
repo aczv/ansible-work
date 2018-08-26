@@ -1,44 +1,26 @@
 ---
 
-- name: create nginx index.html
+- name: nginx index.html
   template:
     src: index.html.j2
     dest: /var/www/html/index.html
     mode: 0644
 
-# jenkins.cepaitis.eu
-
-- name: create jenkins.conf
+- name: nginx sites-available
   template:
-    src: jenkins.conf.j2
-    dest: /etc/nginx/sites-available/jenkins.conf
+    src: "{{ item }}.conf.j2"
+    dest: "/etc/nginx/sites-available/{{ item }}.conf"
     mode: 0644
+  loop: "{{ proxy_sites }}"
   notify:
     - reload nginx
 
-- name: link jenkins.conf
+- name: nginx sites-enabled
   file:
-    src: /etc/nginx/sites-available/jenkins.conf
-    dest: /etc/nginx/sites-enabled/jenkins.conf
+    src: /etc/nginx/sites-available/{{ item }}.conf
+    dest: /etc/nginx/sites-enabled/{{ item }}.conf
     state: link
-  notify:
-    - reload nginx
-
-# monki.biz
-
-- name: create monki.biz.conf
-  template:
-    src: monki.biz.conf.j2
-    dest: /etc/nginx/sites-available/monki.biz.conf
-    mode: 0644
-  notify:
-    - reload nginx
-
-- name: link monki.biz.conf
-  file:
-    src: /etc/nginx/sites-available/monki.biz.conf
-    dest: /etc/nginx/sites-enabled/monki.biz.conf
-    state: link
+  loop: "{{ proxy_sites }}"
   notify:
     - reload nginx
 

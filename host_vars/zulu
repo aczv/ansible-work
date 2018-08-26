@@ -1,0 +1,12 @@
+---
+
+certbot_cert_name: zulu
+certbot_email: andrius@cepaitis.eu
+certbot_webroot_path: /usr/share/nginx/html
+certbot_domains: monki.biz,www.monki.biz
+
+proxy_sites:
+- jenkins
+- monki.biz
+
+...
