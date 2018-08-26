@@ -1,3 +1,11 @@
+# TODO
+
+Install firewall on servers
+
+```bash
+sudo ufw allow 'OpenSSH'
+```
+
 ## TODO
 
 web
@@ -33,4 +41,10 @@ sudo certbot certonly --standalone \
 To non-interactively renew *all* of your certificates, run
 
     certbot renew
+
+# TODO
+
+## Install nginx on zulu
+
+https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04
 
