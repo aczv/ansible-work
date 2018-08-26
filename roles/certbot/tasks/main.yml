@@ -24,14 +24,10 @@
     path: "/var/www/certbot/.well-known"
     state: directory
 
-- debug:
-    msg: "{{ item.domains | join(',') }}"
-  loop: "{{ certbot_certs }}"
-
 - name: Obtain Certbot certificates
   shell: |
     certbot certonly \
-      --webroot --staging --agree-tos --no-eff-email \
+      --webroot --agree-tos --no-eff-email \
       --cert-name {{ item.cert_name }} \
       --email {{ item.email }} \
       --webroot-path {{ item.webroot_path }} \
@@ -39,5 +35,7 @@
   args:
     creates: "/etc/letsencrypt/live/{{ item.cert_name }}/fullchain.pem"
   loop: "{{ certbot_certs }}"
+  notify:
+    - reload nginx
 
 ...
