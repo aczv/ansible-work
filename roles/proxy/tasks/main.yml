@@ -8,8 +8,8 @@
 
 - name: nginx sites-available
   template:
-    src: "{{ item }}.conf.j2"
-    dest: "/etc/nginx/sites-available/{{ item }}.conf"
+    src: "{{ item }}.j2"
+    dest: "/etc/nginx/sites-available/{{ item }}"
     mode: 0644
   loop: "{{ proxy_sites }}"
   notify:
@@ -17,8 +17,8 @@
 
 - name: nginx sites-enabled
   file:
-    src: /etc/nginx/sites-available/{{ item }}.conf
-    dest: /etc/nginx/sites-enabled/{{ item }}.conf
+    src: /etc/nginx/sites-available/{{ item }}
+    dest: /etc/nginx/sites-enabled/{{ item }}
     state: link
   loop: "{{ proxy_sites }}"
   notify:

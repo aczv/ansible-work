@@ -1,12 +1,34 @@
 ---
 
-certbot_cert_name: zulu
-certbot_email: andrius@cepaitis.eu
-certbot_webroot_path: /usr/share/nginx/html
-certbot_domains: monki.biz,www.monki.biz
+certbot_certs:
+
+  - cert_name: monki.biz
+    email: andrius.cepaitis@gmail.com
+    webroot_path: /var/www/monki.biz
+    domains:
+      - monki.biz
+      - www.monki.biz
+
+  - cert_name: zulu.cepaitis.eu
+    email: andrius.cepaitis@gmail.com
+    webroot_path: /var/www/certbot
+    domains:
+      - zulu.cepaitis.eu
+      - jenkins.cepaitis.eu
+      - monit.cepaitis.eu
+      - munin.cepaitis.eu
+      - portainer.cepaitis.eu
+      - prometheus.cepaitis.eu
+      - registry.cepaitis.eu
 
 proxy_sites:
+- default
 - jenkins
 - monki.biz
 
 ...
+
+
+# smm.cepaitis.eu
+# smm-dev.cepaitis.eu
+# smm-test.cepaitis.eu

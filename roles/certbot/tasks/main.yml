@@ -19,15 +19,25 @@
     name: certbot
   when: ansible_pkg_mgr == 'apt'
 
-- name: Obtain certificates from Certbot
+- name: create www/certbot directory
+  file:
+    path: "/var/www/certbot/.well-known"
+    state: directory
+
+- debug:
+    msg: "{{ item.domains | join(',') }}"
+  loop: "{{ certbot_certs }}"
+
+- name: Obtain Certbot certificates
   shell: |
     certbot certonly \
       --webroot --staging --agree-tos --no-eff-email \
-      --cert-name {{ certbot_cert_name }} \
-      --email {{ certbot_email }} \
-      --webroot-path {{ certbot_webroot_path }} \
-      --domains {{ certbot_domains }}
+      --cert-name {{ item.cert_name }} \
+      --email {{ item.email }} \
+      --webroot-path {{ item.webroot_path }} \
+      --domains {{ item.domains | join(',') }}
   args:
-    creates: /etc/letsencrypt/live/{{ certbot_cert_name }}/fullchain.pem
+    creates: "/etc/letsencrypt/live/{{ item.cert_name }}/fullchain.pem"
+  loop: "{{ certbot_certs }}"
 
 ...

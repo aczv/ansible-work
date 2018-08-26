@@ -8,7 +8,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/monkibiz/privkey.pem;
 
     location /.well-known {
-        alias /var/www/monki.biz/.well-known;
+        alias /var/www/certbot/.well-known;
     }
 
     location / {
