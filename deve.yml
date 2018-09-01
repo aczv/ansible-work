@@ -12,6 +12,7 @@
     - sublimetext
     - vagrant
     - yarn
+    - insomnia
 
 # become in role
 - hosts: deve

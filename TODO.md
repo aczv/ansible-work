@@ -30,3 +30,10 @@ To non-interactively renew *all* of your certificates, run
 
 https://molecule.readthedocs.io/en/latest/installation.html
 
+## deve/servers
+
+- sudo apt install tree
+
+- docker compose
+
+- Chef InSpec
