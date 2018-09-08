@@ -30,6 +30,7 @@ proxy_sites:
 - jenkins
 - monki.biz
 - portainer
+- aha
 
 ...
 
