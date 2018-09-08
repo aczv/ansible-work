@@ -38,4 +38,11 @@
   notify:
     - reload nginx
 
+- name: Install certbot's crontab
+  cron:
+    name: "certbot renew"
+    minute: "20"
+    hour: "4"
+    job: "certbot renew"
+
 ...

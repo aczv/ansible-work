@@ -20,6 +20,10 @@ certbot_certs:
       - portainer.cepaitis.eu
       - prometheus.cepaitis.eu
       - registry.cepaitis.eu
+      - aha.cepaitis.eu
+      - t1.cepaitis.eu
+      - t2.cepaitis.eu
+      - t3.cepaitis.eu
 
 proxy_sites:
 - default
