@@ -3,4 +3,4 @@
 - hosts: deve
   become: yes
   roles:
-    - insomnia
+    - postgres
