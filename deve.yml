@@ -13,7 +13,6 @@
     - vagrant
     - yarn
     - insomnia
-    - postgres
 
 # become in role
 - hosts: deve
