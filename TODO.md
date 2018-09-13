@@ -37,3 +37,22 @@ https://molecule.readthedocs.io/en/latest/installation.html
 - docker compose
 
 - Chef InSpec
+
+## axios config
+
+veikiantis konfigas ant bob:
+
+```
+    axios: {
+      baseURL: 'http://127.0.0.1:3001/api',
+      browserBaseURL: 'https://aha.cepaitis.eu/api'
+      // prefix: '/api'
+      // baseURL: '/api'
+    },
+
+    proxy: [
+      //['/api', {
+        //target: process.env.BACKEND_URL || 'http://127.0.0.1:3030'
+      //}]
+    ],
+```
