@@ -34,13 +34,33 @@
     - packages
     - dbusers
 
-- name: "Create PostgreSQL users"
-  become: yes
+- name: "set postgres password"
   become_user: postgres
   postgresql_user:
     name: postgres
     password: "{{ postgres_password }}"
   tags:
-    - dbusers
+    - db
+
+- name: "create databases"
+  become_user: postgres
+  postgresql_db:
+    name: "{{ item }}"
+  loop:
+    - acme
+    - smmtest
+    - birdbase
+  tags:
+    - db
+
+- name: "add db users"
+  become_user: postgres
+  postgresql_user:
+    db: birdbase
+    name: birdbase
+    password: password
+    priv: "CONNECT"
+  tags:
+    - db
 
 ...
