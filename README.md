@@ -52,3 +52,17 @@ Once a certificate is revoked (or for other certificate management tasks), all o
 ```bash
 certbot delete --cert-name monki.biz
 ```
+
+## PostgreSQL
+
+Run ansible playbook:
+
+```bash
+ansible-playbook db.yml -K -i loki
+```
+
+Login to the PostgreSQL Server:
+
+```bash
+sudo -u postgres psql
+```

@@ -24,4 +24,23 @@
       - pgadmin4
   when: ansible_pkg_mgr == 'apt'
 
+- name: install prerequisites
+  apt: name={{ item }}
+  with_items:
+    - libpq-dev
+    - python-psycopg2
+  when: ansible_pkg_mgr == 'apt'
+  tags:
+    - packages
+    - dbusers
+
+- name: "Create PostgreSQL users"
+  become: yes
+  become_user: postgres
+  postgresql_user:
+    name: postgres
+    password: "{{ postgres_password }}"
+  tags:
+    - dbusers
+
 ...
