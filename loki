@@ -21,3 +21,7 @@ zulu
 [db]
 aha
 bob
+
+[kubectl]
+aha
+bob
