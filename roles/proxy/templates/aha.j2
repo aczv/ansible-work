@@ -25,7 +25,7 @@ server {
         proxy_set_header X-Forwarded-Proto  $scheme;
         proxy_read_timeout          1m;
         proxy_connect_timeout       1m;
-        proxy_pass                          http://192.168.21.9:3000;
+        proxy_pass                          http://192.168.21.7:3000;
     }
 
     location /api/ {
@@ -36,7 +36,7 @@ server {
         proxy_set_header X-Forwarded-Proto  $scheme;
         proxy_read_timeout          1m;
         proxy_connect_timeout       1m;
-        proxy_pass                          http://192.168.21.9:3001;
+        proxy_pass                          http://192.168.21.7:3030;
     }
 }
 
