@@ -63,4 +63,10 @@
   tags:
     - db
 
+# TODO: allow remote connections
+# https://bosnadev.com/2015/12/15/allow-remote-connections-postgresql-database-server/
+# 1. CHANGE THE LISTEN ADDRESS
+# 2. OPEN POSTGRESQL TO THE WORLD
+# 3. sudo systemctl reload postgresql.service
+
 ...
