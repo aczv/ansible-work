@@ -32,6 +32,7 @@ proxy_sites:
 - portainer
 - aha
 - t1
+- zulu
 
 ...
 

@@ -45,7 +45,7 @@ server {
     server_name aha.cepaitis.eu;
 
     location /.well-known/ {
-        alias /var/www/certbot/.well-known/;
+        root /var/www/certbot;
     }
 
     location / {

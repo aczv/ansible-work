@@ -24,10 +24,10 @@
   notify:
     - reload nginx
 
-- name: create .well-known directories for certbot
+- name: create /var/www/certbot directory
   file:
-    path: "/var/www/{{ item }}/.well-known"
+    path: "/var/www/certbot/.well-known"
     state: directory
-  loop: "{{ proxy_sites }}"
+    mode: 0655
 
 ...

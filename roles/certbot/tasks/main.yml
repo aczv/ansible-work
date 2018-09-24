@@ -23,6 +23,7 @@
   file:
     path: "/var/www/certbot/.well-known"
     state: directory
+    mode: 0655
 
 - name: Obtain Certbot certificates
   shell: |
