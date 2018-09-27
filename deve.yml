@@ -13,6 +13,7 @@
     - vagrant
     - yarn
     - insomnia
+    - vscode
 
 # become in role
 - hosts: deve
