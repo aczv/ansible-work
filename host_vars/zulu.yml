@@ -1,5 +1,7 @@
 ---
 
+jenkins_agent_username: ed
+
 certbot_certs:
 
   - cert_name: monki.biz
