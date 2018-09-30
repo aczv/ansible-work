@@ -1,0 +1,11 @@
+---
+
+- hosts: servers
+  become: yes
+  roles:
+    - docker
+    - fixes
+    - java
+    - yarn
+
+...
