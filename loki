@@ -11,6 +11,7 @@ zulu
 
 [jenkins_agents]
 bob
+zulu
 
 [proxy]
 zulu
