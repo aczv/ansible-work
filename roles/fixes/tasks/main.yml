@@ -8,3 +8,10 @@
     regexp: '^enabled='
     line: 'enabled=0'
   become: yes
+
+# via https://askubuntu.com/questions/446395/how-to-turn-off-software-updater-xubuntu
+- name: remove update-notifier
+  apt:
+    name: update-notifier
+    state: absent
+  when: ansible_pkg_mgr == 'apt'
