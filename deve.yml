@@ -7,9 +7,10 @@
     - fixes
     - sublimetext
     - docker
-    - nodejs
     - vagrant
     - java
     - smartgit
+    - nodejs
+    - postgres
 
 ...

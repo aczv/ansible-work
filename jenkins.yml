@@ -1,11 +1,10 @@
 ---
 # Configure Jenkins Agent servers
 
-- hosts: jenkins_agents
+- hosts: jenkagent
   become: yes
   roles:
-    - jenkins_agent
+    - jenkagent
     - java
-    - yarn
 
 ...

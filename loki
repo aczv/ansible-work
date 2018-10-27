@@ -1,6 +1,6 @@
-aha ansible_host=192.168.21.7
-bob ansible_host=192.168.21.9
-zulu ansible_host=192.168.24.41
+aha
+bob
+zulu
 
 [deve]
 aha
@@ -9,7 +9,7 @@ aha
 bob
 zulu
 
-[jenkins_agents]
+[jenkagent]
 bob
 zulu
 
@@ -18,10 +18,6 @@ zulu
 
 [certbot]
 zulu
-
-[db]
-aha
-bob
 
 [kubectl]
 aha
