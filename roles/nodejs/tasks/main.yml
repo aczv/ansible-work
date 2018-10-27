@@ -1,5 +1,8 @@
 ---
-# Install yarn
+# Install Node.js and Yarn
+
+# TODO Install Node.js
+# https://nodejs.org/en/download/package-manager
 
 - name: "Add Yarn's GPG key"
   apt_key:
