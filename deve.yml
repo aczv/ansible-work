@@ -1,23 +1,15 @@
 ---
+# For developer's PC
 
 - hosts: deve
   become: yes
   roles:
-    - atom
-    - chrome
-    - docker
     - fixes
+    - sublimetext
+    - docker
+    - nodejs
+    - vagrant
     - java
     - smartgit
-    - sublimetext
-    - vagrant
-    - yarn
-    - insomnia
-    - vscode
-
-# become in role
-- hosts: deve
-  roles:
-    - virtualbox
 
 ...

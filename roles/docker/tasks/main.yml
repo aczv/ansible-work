@@ -9,7 +9,6 @@
     packages:
     - apt-transport-https
     - ca-certificates
-    - curl
     - software-properties-common
   when: ansible_pkg_mgr == 'apt'
 
@@ -28,10 +27,6 @@
     name: docker-ce
   when: ansible_pkg_mgr == 'apt'
 
-- name: "Add docker group"
-  group:
-    name: docker
-
 - name: "Add user `{{ docker_user }}` to docker group"
   user:
     name: "{{ docker_user }}"
@@ -42,3 +37,5 @@
 - name: "Run Hello World in a docker container"
   shell: "docker run --rm hello-world"
   changed_when: False
+
+...

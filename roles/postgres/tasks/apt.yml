@@ -1,0 +1,23 @@
+---
+# Install PostgreSQL
+
+- name: "Add PostgreSQL key"
+  apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+
+- name: "Add PostgreSQL repo"
+  apt_repository:
+    repo: "deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_lsb.codename }}-pgdg main"
+    filename: "pgdg"
+
+- name: "Install PostgreSQL"
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - postgresql-10
+    - pgadmin4
+    - libpq-dev
+    - python-psycopg2
+
+...

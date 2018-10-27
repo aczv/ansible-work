@@ -1,0 +1,17 @@
+---
+# More for developer's PC
+
+- hosts: deve
+  become: yes
+  roles:
+    - atom
+    - chrome
+    - insomnia
+    - vscode
+
+# become in role
+- hosts: deve
+  roles:
+    - virtualbox
+
+...
