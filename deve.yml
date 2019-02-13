@@ -1,16 +1,14 @@
 ---
 # For developer's PC
 
-- hosts: deve
+- hosts: all
   become: yes
   roles:
     - fixes
     - sublimetext
     - docker
-    - vagrant
     - java
     - smartgit
     - nodejs
-    - postgres
 
 ...
