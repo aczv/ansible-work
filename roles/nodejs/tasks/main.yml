@@ -4,18 +4,21 @@
 # TODO Install Node.js
 # https://nodejs.org/en/download/package-manager
 
-- name: "Add Yarn's GPG key"
+- name: add yarn key
+  become: yes
   apt_key:
     url: https://dl.yarnpkg.com/debian/pubkey.gpg
   when: ansible_pkg_mgr == 'apt'
 
-- name: "Add Yarn repository"
+- name: add yarn repo
+  become: yes
   apt_repository:
     repo: "deb https://dl.yarnpkg.com/debian/ stable main"
     filename: yarn
   when: ansible_pkg_mgr == 'apt'
 
-- name: "Install Yarn"
+- name: install yarn
+  become: yes
   apt:
     name: yarn
     install_recommends: no

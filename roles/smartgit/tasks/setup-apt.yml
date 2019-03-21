@@ -1,13 +1,15 @@
 # apt tasks file for smartgit role
 
-- name: "apt | ensure ppa:eugenesan/ppa present"
+- name: add smartgit repo
+  become: yes
   apt_repository:
     repo: ppa:eugenesan/ppa
     filename: "eugenesan"
     state: present
     update_cache: yes
 
-- name: "apt | ensure SmartGit present"
+- name: install smartgit
+  become: yes
   apt:
     name: "smartgit"
     state: present

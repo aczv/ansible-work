@@ -1,7 +1,8 @@
 ---
 # Tasks file for Java role
 
-- name: "apt | Install Java"
+- name: install java
+  become: yes
   apt:
     name: "{{ packages }}"
     state: present
@@ -12,7 +13,8 @@
   when: ansible_pkg_mgr == 'apt'
 
 # SmartGit 18.1 fails to start with JRE 9 preview error message
-- name: correct java version selected
+- name: select correct java version
+  become: yes
   alternatives:
     name: java
     path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java

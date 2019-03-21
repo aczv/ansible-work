@@ -2,7 +2,6 @@
 # For developer's PC
 
 - hosts: all
-  become: yes
   roles:
     - fixes
     - sublimetext

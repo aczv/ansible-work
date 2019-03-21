@@ -2,15 +2,16 @@
 # tasks file for fixes
 
 # via https://www.linuxbabe.com/ubuntu/disable-apport-error-reporting-ubuntu-16-04-lts
-- name: Disable Apport Error Reporting
+- name: disable apport error reporting
+  become: yes
   lineinfile:
     path: /etc/default/apport
     regexp: '^enabled='
     line: 'enabled=0'
-  become: yes
 
 # via https://askubuntu.com/questions/446395/how-to-turn-off-software-updater-xubuntu
-- name: remove update-notifier
+- name: remove update notifier
+  become: yes
   apt:
     name: update-notifier
     state: absent
